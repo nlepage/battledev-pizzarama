@@ -1,11 +1,14 @@
-const input = []
+(function() {
+  if (typeof readline_object !== 'undefined') {
+    const input = []
+    readline_object.on("line", (value) => {
+      input.push(value)
+    })
+    readline_object.on("close", () => console.log(solve(input)))
+  }
+})()
 
-readline_object.on("line", (value) => {
-  input.push(value)
-})
-readline_object.on("close", ContestResponse)
-
-function ContestResponse() {
+function solve(input) {
   N = +input[0]
 
   // Parse stations
@@ -24,9 +27,13 @@ function ContestResponse() {
     }
   }
 
-  console.log(0)
+  return 0
 }
 
 function p2(n) {
   return n * n
+}
+
+module.exports = {
+  solve,
 }
